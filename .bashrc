@@ -117,9 +117,25 @@ if ! shopt -oq posix; then
 fi
 
 # added by Anaconda3 installer
-export PATH="/home/boyao/anaconda3/bin:$PATH"
+# export PATH="/home/boyao/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # added by Boyao: cuDNN
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
 export PATH="/home/boyao/.local/bin:$PATH"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/boyao/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/boyao/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/boyao/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/boyao/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
